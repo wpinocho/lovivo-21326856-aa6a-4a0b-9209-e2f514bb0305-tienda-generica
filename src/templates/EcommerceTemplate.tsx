@@ -4,6 +4,7 @@ import { BrandLogoLeft } from '@/components/BrandLogoLeft'
 import { SocialLinks } from '@/components/SocialLinks'
 import { FloatingCart } from '@/components/FloatingCart'
 import { ProfileMenu } from '@/components/ProfileMenu'
+import { MobileMenu } from '@/components/MobileMenu'
 import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { ShoppingCart } from 'lucide-react'
@@ -49,10 +50,17 @@ export const EcommerceTemplate = ({
     <div className={`py-3 ${headerClassName}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <BrandLogoLeft />
+          {/* Mobile Menu - Left on mobile */}
+          <div className="md:hidden">
+            <MobileMenu />
+          </div>
+          
+          {/* Logo - Centered on mobile, left on desktop */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 md:relative md:left-auto md:transform-none">
+            <BrandLogoLeft />
+          </div>
 
-          {/* Navigation */}
+          {/* Navigation - Hidden on mobile */}
           <div className="hidden md:flex items-center space-x-8">
             <nav className="flex space-x-8 text-sm">
               <Link to="/" className="text-foreground/80 hover:text-foreground transition-colors">
@@ -82,8 +90,8 @@ export const EcommerceTemplate = ({
             </nav>
           </div>
 
-          {/* Profile & Cart */}
-          <div className="flex items-center space-x-2">
+          {/* Profile & Cart - Right on mobile and desktop */}
+          <div className="flex items-center space-x-1 md:space-x-2">
             <ProfileMenu />
             
             {showCart && (
