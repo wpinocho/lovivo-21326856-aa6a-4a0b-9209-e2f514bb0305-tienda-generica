@@ -16,7 +16,7 @@ export const NewsletterSection = () => {
   return (
     <HeadlessNewsletter>
       {(logic) => (
-        <section className="bg-muted/30 py-16 border-y">
+        <section className="bg-muted/20 py-20 border-t">
           <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             {logic.success ? (
               <div className="space-y-4">
@@ -56,13 +56,14 @@ export const NewsletterSection = () => {
                     value={logic.email}
                     onChange={(e) => logic.setEmail(e.target.value)}
                     disabled={logic.isSubmitting}
-                    className="flex-1"
+                    className="flex-1 h-11"
                     required
                   />
                   <Button 
                     type="submit"
                     disabled={logic.isSubmitting}
-                    className="sm:w-auto"
+                    size="lg"
+                    className="sm:w-auto rounded-full"
                   >
                     {logic.isSubmitting ? 'Suscribiendo...' : 'Suscribirse'}
                   </Button>

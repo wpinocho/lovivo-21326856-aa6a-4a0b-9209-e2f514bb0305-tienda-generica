@@ -169,7 +169,7 @@ export const CartSidebar = ({ isOpen, onClose }: CartSidebarProps) => {
                 </div>
 
                 <Button 
-                  className="w-full mt-4" 
+                  className="w-full mt-4 rounded-full" 
                   size="lg" 
                   onClick={handleCreateCheckout} 
                   disabled={isCreatingOrder}

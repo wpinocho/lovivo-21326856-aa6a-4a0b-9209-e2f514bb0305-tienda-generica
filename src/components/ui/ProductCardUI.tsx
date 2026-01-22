@@ -26,10 +26,10 @@ export const ProductCardUI = ({ product }: ProductCardUIProps) => {
   return (
     <HeadlessProductCard product={product}>
       {(logic) => (
-        <Card className="bg-white border border-gray-200">
+        <Card className="bg-card border-border hover:shadow-lg transition-shadow">
           <CardContent className="p-4">
             <Link to={`/productos/${logic.product.slug}`} className="block">
-              <div className="aspect-square bg-gray-100 rounded-md mb-3 overflow-hidden relative group">
+              <div className="aspect-square bg-muted rounded-lg mb-3 overflow-hidden relative group">
                 {(logic.matchingVariant?.image || (logic.product.images && logic.product.images.length > 0)) ? (
                   <>
                     {/* Primary image - only fade on hover if there's a second image */}
@@ -77,11 +77,11 @@ export const ProductCardUI = ({ product }: ProductCardUIProps) => {
                 </div>
               </div>
 
-              <h3 className="text-black font-medium text-sm mb-1 line-clamp-2">
+              <h3 className="font-semibold text-base mb-1 line-clamp-2">
                 {logic.product.title}
               </h3>
               {logic.product.description && (
-                <p className="text-gray-600 text-xs mb-3 line-clamp-2">
+                <p className="text-muted-foreground text-sm mb-3 line-clamp-2">
                   {logic.product.description.replace(/<[^>]*>/g, '')}
                 </p>
               )}
@@ -154,14 +154,14 @@ export const ProductCardUI = ({ product }: ProductCardUIProps) => {
                 )}
               </div>
               <Button
-                variant="outline"
+                variant="default"
                 size="sm"
                 onClick={() => {
                   logic.onAddToCartSuccess() // Hook para features adicionales
                   logic.handleAddToCart()
                 }}
                 disabled={!logic.canAddToCart}
-                className="text-black border-black hover:bg-black hover:text-white disabled:opacity-50"
+                className="rounded-full disabled:opacity-50"
               >
                 {logic.inStock ? 'Agregar' : 'Agotado'}
               </Button>
