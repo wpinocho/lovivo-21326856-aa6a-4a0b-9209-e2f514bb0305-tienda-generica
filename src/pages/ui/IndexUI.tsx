@@ -53,15 +53,13 @@ export const IndexUI = ({ logic }: IndexUIProps) => {
                 <Link to={`/productos/${phone.slug}`}>Comprar</Link>
               </Button>
             </div>
-            {phone.images && phone.images.length > 0 && (
-              <div className="max-w-5xl mx-auto">
-                <img 
-                  src={phone.images[0]} 
-                  alt={phone.title}
-                  className="w-full h-auto"
-                />
-              </div>
-            )}
+            <div className="max-w-5xl mx-auto">
+              <img 
+                src="https://ptgmltivisbtvmoxwnhd.supabase.co/storage/v1/object/public/message-images/10c3e865-281a-4abb-936b-90a0487aa51d/1769111140234-kfkab60z1mj.jpg" 
+                alt={phone.title}
+                className="w-full h-auto"
+              />
+            </div>
           </div>
         </section>
       )}
